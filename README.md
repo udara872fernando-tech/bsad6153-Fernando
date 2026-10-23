@@ -1,7 +1,7 @@
 # BSAD 6153 Project: &lt;your project name&gt;
 
-**Student:** &lt;your name&gt;
-**My decision:** &lt;the decision you make regularly that this project improves&gt;
+**Student:** Udara Fernando
+**My decision:** Which players to start in my weekly Fantasy Football lineup (specifically WR/RB/TE/FLEX / QB / Defense streaming spots) based on matchup metrics and projections
 **Website:** &lt;your domain, from Week 4&gt;
 
 This repository is one complete AI system, built over eight weeks: a real API, synced on a schedule into a
