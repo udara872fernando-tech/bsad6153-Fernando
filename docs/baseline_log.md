@@ -17,7 +17,7 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 
 ## Reflection
 
-### 1. **The three most frustrating or time-consuming parts:**
+### 1. *What are the three most frustrating or time-consuming parts?*
 
 - **Aggregating Fragmented Information:** Cross-referencing player news across multiple platforms (Sleeper alerts, Twitter beat writers, injury reports, and fantasy podcasts) takes significant manual effort.
 - **Evaluating Injury Impact:** Trying to quickly determine how a star player's injury affects target share and volume for backup players across the roster.
@@ -29,6 +29,10 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 - **What would make me ignore it:** Outdated injury information, generic advice without statistical backing, or recommendations that contradict official inactive/active status reports right before kickoff.
 
 ### 3. **What would make me trust a system's recommendation? What would make me ignore it?**
+
+- **Submit or accept trade offers:** Trades involve permanent team strategy and personal roster value preferences.
+- **Add or drop rostered players:** Releasing a player to waivers is irreversible once executed or claimed by another league manager.
+- **Modify starting lineups after lock times:** Final lineup submission should always remain under direct user approval.
 
 ### 4. **What a system should never do on my behalf without asking:**
 
