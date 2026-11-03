@@ -17,7 +17,7 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 
 ## Reflection
 
-### 1. *What are the three most frustrating or time-consuming parts?*
+### 1. What are the three most frustrating or time-consuming parts?
 
 - **Aggregating Fragmented Information:** Cross-referencing player news across multiple platforms (Sleeper alerts, Twitter beat writers, injury reports, and fantasy podcasts) takes significant manual effort.
 - **Evaluating Injury Impact:** Trying to quickly determine how a star player's injury affects target share and volume for backup players across the roster.
