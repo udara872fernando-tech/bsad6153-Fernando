@@ -23,6 +23,11 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 - **Evaluating Injury Impact:** Trying to quickly determine how a star player's injury affects target share and volume for backup players across the roster.
 - **Sifting Through Noise:** Filtering out biased opinions or outdated advice on social media platforms like Reddit and Twitter to find actionable, real-time data before game lock.
 
+### 2. If a system gave you a recommendation, what would make you trust it? What would make you ignore it?
+
+- **What would make me trust it:** Transparent reasoning with real underlying data (e.g., showing target share percentage, red-zone touches, snap counts, and matchup ranks) rather than just a black-box projection score.
+- **What would make me ignore it:** Outdated injury information, generic advice without statistical backing, or recommendations that contradict official inactive/active status reports right before kickoff.
+
 ### 3. **What would make me trust a system's recommendation? What would make me ignore it?**
 
 ### 4. **What a system should never do on my behalf without asking:**
