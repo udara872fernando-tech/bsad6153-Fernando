@@ -12,7 +12,7 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 | **Oct 18 (Reconstructed):**| Setting Sunday starting lineup for QB & WR flex spots. | Sleeper player news updates, NFL injury reports, weather forecasts on Twitter/X. | 22 mins | Defensive matchup rankings against specific slot vs. boundary WR positions. | 4 |
 | **Oct 20 (Reconstructed):**| Evaluating a trade offer (offering a TE for a RB2). | Sleeper trade analyzer, Reddit /r/FantasyFootball, consensus trade value charts. | 15 mins | Long-term rest-of-season projections and upcoming bye-week overlaps. | 2 |
 | **Oct 25 (Live):**| Deciding whether to start a questionable RB dealing with an ankle injury. | Team practice reports, Beat writer tweets, ESPN fantasy injury outlook. | 12 mins | Whether the RB would be on a strict snap count or sharing goal-line carries. | 2 |
-| **Oct 27 (Live):** Dropping bench players to claim a defense for next week's matchup. | Sleeper defensive point projections, upcoming 3-week opponent schedules. | 10 mins | True defensive pressure rates vs. opposing quarterback turnover ratios. | 4 |
+| **Oct 27 (Live):**| Dropping bench players to claim a defense for next week's matchup. | Sleeper defensive point projections, upcoming 3-week opponent schedules. | 10 mins | True defensive pressure rates vs. opposing quarterback turnover ratios. | 4 |
 
 
 ## Reflection
