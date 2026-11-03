@@ -17,13 +17,13 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 
 ## Reflection
 
-## 1. What are the three most frustrating or time-consuming parts?
+#### 1. What are the three most frustrating or time-consuming parts?
 
 - **Aggregating Fragmented Information:** Cross-referencing player news across multiple platforms (Sleeper alerts, Twitter beat writers, injury reports, and fantasy podcasts) takes significant manual effort.
 - **Evaluating Injury Impact:** Trying to quickly determine how a star player's injury affects target share and volume for backup players across the roster.
 - **Sifting Through Noise:** Filtering out biased opinions or outdated advice on social media platforms like Reddit and Twitter to find actionable, real-time data before game lock.
 
-## 2.If a system gave you a recommendation, what would make you trust it? What would make you ignore it?
+#### 2. If a system gave you a recommendation, what would make you trust it? What would make you ignore it?
 
 - **What would make me trust it:** Transparent reasoning with real underlying data (e.g., showing target share percentage, red-zone touches, snap counts, and matchup ranks) rather than just a black-box projection score.
 - **What would make me ignore it:** Outdated injury information, generic advice without statistical backing, or recommendations that contradict official inactive/active status reports right before kickoff.
