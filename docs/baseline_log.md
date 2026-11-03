@@ -28,14 +28,21 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 - **What would make me trust it:** Transparent reasoning with real underlying data (e.g., showing target share percentage, red-zone touches, snap counts, and matchup ranks) rather than just a black-box projection score.
 - **What would make me ignore it:** Outdated injury information, generic advice without statistical backing, or recommendations that contradict official inactive/active status reports right before kickoff.
 
-### 3. **What would make me trust a system's recommendation? What would make me ignore it?**
+#### 3. What should a system never do on your behalf without asking?
 
 - **Submit or accept trade offers:** Trades involve permanent team strategy and personal roster value preferences.
 - **Add or drop rostered players:** Releasing a player to waivers is irreversible once executed or claimed by another league manager.
 - **Modify starting lineups after lock times:** Final lineup submission should always remain under direct user approval.
 
-### 4. **What a system should never do on my behalf without asking:**
+#### 4. How would you know whether it was actually helping?
 
-### 5. **How I would know it was actually helping** *(this becomes my value hypothesis)*:
+- **Time Saved:** Decision-making time drops from 15–20 minutes per decision down to under 5 minutes.
+- **Decision Confidence:** Average self-reported confidence score increases from 3/5 to 4/5 or higher.
+- **Roster Efficiency:** Higher start/sit accuracy rate (fewer points left on the bench compared to manual choices).
 
-### 6. **One assumption about my own workflow that this log proved wrong:**
+#### 5. One assumption about your own workflow that the log proved wrong.
+
+- **Initial Assumption:** I assumed most of my time was spent analyzing player statistics and box scores.
+- **Log Finding:** The log showed that over 60% of time was actually spent gathering scatte
+
+
