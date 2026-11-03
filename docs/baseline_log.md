@@ -9,7 +9,7 @@ Mark any entry you had to reconstruct from memory as *(reconstructed)*.
 | Date | What I was deciding | What I looked at | Time (min) | What I wished I knew | Confidence (1&ndash;5) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |**Oct 18 (Reconstructed)|Deciding Week 6 Waiver Wire pickups (e.g., Jameis Winston, Dameon Pierce)|Yahoo Fantasy email newsletter, Sleeper app trending adds/drops list, FantasyPros.|18 mins|Expected target share and usage trends with key team injuries.|3|
-| **Oct 18 (Reconstructed):** Setting Sunday starting lineup for QB & WR flex spots. | Sleeper player news updates, NFL injury reports, weather forecasts on Twitter/X. | 22 mins | Defensive matchup rankings against specific slot vs. boundary WR positions. | 4 |
+| **Oct 18 (Reconstructed):**| Setting Sunday starting lineup for QB & WR flex spots. | Sleeper player news updates, NFL injury reports, weather forecasts on Twitter/X. | 22 mins | Defensive matchup rankings against specific slot vs. boundary WR positions. | 4 |
 
 
 ## Reflection
