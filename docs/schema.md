@@ -40,6 +40,7 @@ erDiagram
 
     players ||--o{ player_stats : "generates stats for"
     rosters ||--o{ player_stats : "contains"
+    
     Table Descriptions
 players: Each row represents an individual NFL player fetched from the Sleeper API, storing core biographical data, positional metadata, and audit tracking.
 
