@@ -1,22 +1,22 @@
 [
   {
-    "count": 966938,
+    "count": 572040,
+    "player_id": "6130"
+  },
+  {
+    "count": 384480,
+    "player_id": "11625"
+  },
+  {
+    "count": 260136,
+    "player_id": "11783"
+  },
+  {
+    "count": 235448,
+    "player_id": "4147"
+  },
+  {
+    "count": 233331,
     "player_id": "WAS"
-  },
-  {
-    "count": 949284,
-    "player_id": "JAX"
-  },
-  {
-    "count": 774232,
-    "player_id": "13296"
-  },
-  {
-    "count": 739746,
-    "player_id": "7561"
-  },
-  {
-    "count": 576184,
-    "player_id": "13424"
   }
 ]
