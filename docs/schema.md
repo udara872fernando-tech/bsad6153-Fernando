@@ -43,14 +43,14 @@ erDiagram
 ```
 ### Table Descriptions
 
-- players: Each row represents an individual NFL player fetched from the Sleeper API, storing core biographical data, positional metadata, and audit tracking.
+- **Players**: Each row represents an individual NFL player fetched from the Sleeper API, storing core biographical data, positional metadata, and audit tracking.
 
-- rosters: Each row represents a fantasy team roster within a specific league, tracking owner associations and overall team performance records (wins/losses).
+- **Rosters**: Each row represents a fantasy team roster within a specific league, tracking owner associations and overall team performance records (wins/losses).
 
-- player_stats: Each row represents a single player's weekly performance metrics (such as fantasy points scored) for a specific NFL week and season.
+- **Player_Stats**: Each row represents a single player's weekly performance metrics (such as fantasy points scored) for a specific NFL week and season.
 
 ### Design Decision Justification
  
-- Decision: We debated whether to store player weekly performance statistics inside a flattened JSON column directly within the players table versus creating a normalized relational child table (player_stats).
+- **Decision**: We debated whether to store player weekly performance statistics inside a flattened JSON column directly within the players table versus creating a normalized relational child table (player_stats).
 
-- Justification: We chose to normalize performance metrics into a separate player_stats table with explicit foreign keys (player_id and roster_id). While a JSON blob would have simplified initial data ingestion, a normalized relational design is necessary to efficiently answer multi-variable business queries (like aggregating top-scoring players across specific weeks and seasons) while still retaining a raw jsonb column on every table to safely capture unmodeled API metadata.
+- **Justification**: We chose to normalize performance metrics into a separate player_stats table with explicit foreign keys (player_id and roster_id). While a JSON blob would have simplified initial data ingestion, a normalized relational design is necessary to efficiently answer multi-variable business queries (like aggregating top-scoring players across specific weeks and seasons) while still retaining a raw jsonb column on every table to safely capture unmodeled API metadata.
