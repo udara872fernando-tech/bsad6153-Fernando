@@ -54,3 +54,14 @@ erDiagram
 - **Decision**: We debated whether to store player weekly performance statistics inside a flattened JSON column directly within the players table versus creating a normalized relational child table (player_stats).
 
 - **Justification**: We chose to normalize performance metrics into a separate player_stats table with explicit foreign keys (player_id and roster_id). While a JSON blob would have simplified initial data ingestion, a normalized relational design is necessary to efficiently answer multi-variable business queries (like aggregating top-scoring players across specific weeks and seasons) while still retaining a raw jsonb column on every table to safely capture unmodeled API metadata.
+## Access roles
+SELECT COUNT(*) FROM players;
+Result: (9422,)
+
+> DELETE FROM players WHERE player_id = 'nonexistent';
+Expected Error: permission denied for table players
+
+> INSERT INTO players (player_id) VALUES ('test');
+Expected Error: permission denied for table players
+
+All read-only enforcement checks completed successfully!
