@@ -1,22 +1,17 @@
--- db/schema.sql: your database design (Week 2), extended in Weeks 3 and 6.
---
--- Design on paper first, using docs/data_dictionary.md, then build it here.
--- Required (see the Week 2 page):
---   * at least 3 related tables that match the real entities in your data
---   * a primary key on every table; keep the source's natural ID with a UNIQUE constraint
---   * foreign keys for every relationship
---   * real data types (timestamptz, integer, numeric, text), not text for everything
---   * NOT NULL and CHECK constraints that encode what you learned about the data
---   * audit columns on every table: first_seen_at and last_updated_at
---
--- Week 3 adds sync_runs. Week 6 adds agent_runs and agent_proposals.
--- Use identity columns (generated always as identity) for IDs you create yourself.
---
--- Example shape only. Replace it with your own entities:
---
--- create table players (
---     player_id       bigint generated always as identity primary key,
---     username        text not null unique,            -- the API's natural ID
---     first_seen_at   timestamptz not null default now(),
---     last_updated_at timestamptz not null default now()
--- );
+-- 1. Ensure data tables track when a record actually changes (Part B)
+ALTER TABLE players ADD COLUMN IF NOT EXISTS last_updated_at TIMESTAMPTZ DEFAULT NOW();
+ALTER TABLE rosters ADD COLUMN IF NOT EXISTS last_updated_at TIMESTAMPTZ DEFAULT NOW();
+ALTER TABLE player_stats ADD COLUMN IF NOT EXISTS last_updated_at TIMESTAMPTZ DEFAULT NOW();
+
+-- 2. Create the sync_runs logging table (Part C)
+CREATE TABLE IF NOT EXISTS sync_runs (
+    run_id SERIAL PRIMARY KEY,
+    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    finished_at TIMESTAMPTZ,
+    status TEXT NOT NULL CHECK (status IN ('success', 'partial', 'failed')),
+    records_fetched INTEGER DEFAULT 0,
+    records_inserted INTEGER DEFAULT 0,
+    records_updated INTEGER DEFAULT 0,
+    error_message TEXT,
+    trigger TEXT NOT NULL CHECK (trigger IN ('schedule', 'manual'))
+);
