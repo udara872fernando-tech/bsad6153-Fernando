@@ -31,7 +31,7 @@ every command before you approve it, and keep auto-approve off.
 5. **Check everything:** `python scripts/check_setup.py` should end with `Setup OK`.
 6. **Try the website:** `streamlit run app/streamlit_app.py` opens it in your browser. Press Ctrl+C to stop it.
 
-### Working with your AI agent
+## Working with your AI agent
 
 - **You approve every command.** Read it first, and if you don't understand it, ask the agent what it does.
 - **Ask for a plan before code:** "Before writing anything, tell me your plan."
@@ -106,3 +106,6 @@ every command before you approve it, and keep auto-approve off.
 ## Credits
 
 <!-- Your data API's required attribution, plus any open-source code or samples you used. -->
+
+## Automated Data Sync Schedule
+The GitHub Actions workflow (`.github/workflows/sync.yml`) runs every 6 hours (`0 */6 * * *`) to balance keeping fantasy player and game data current on game days while staying well within API rate limits. A `workflow_dispatch` trigger is also included to allow manual test runs when needed.
