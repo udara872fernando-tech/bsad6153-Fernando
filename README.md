@@ -109,3 +109,6 @@ every command before you approve it, and keep auto-approve off.
 
 ## Automated Data Sync Schedule
 The GitHub Actions workflow (`.github/workflows/sync.yml`) runs every 6 hours (`0 */6 * * *`) to balance keeping fantasy player and game data current on game days while staying well within API rate limits. A `workflow_dispatch` trigger is also included to allow manual test runs when needed.
+
+## Sync Schedule
+The GitHub Actions workflow (`.github/workflows/sync.yml`) runs every 6 hours (`0 */6 * * *`) to keep fantasy data reasonably fresh across game days while respecting source rate limits. It also supports `workflow_dispatch` so manual runs can be triggered on demand.
