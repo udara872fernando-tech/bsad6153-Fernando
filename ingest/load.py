@@ -1,19 +1,27 @@
-import os
 import json
+import os
+import sys
 import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+
 def get_connection():
+    if not DATABASE_URL:
+        raise ValueError("DATABASE_URL environment variable is not set.")
     return psycopg2.connect(DATABASE_URL)
 
+
 def load_data():
-    conn = get_connection()
-    cur = conn.cursor()
+    conn = None
+    cur = None
 
     try:
+        conn = get_connection()
+        cur = conn.cursor()
+
         # --- 1. LOAD ACTIVE PLAYERS (No Duplicates) ---
         print("Loading active players...")
         players_path = os.path.join("data", "raw", "players_all.json")
@@ -30,22 +38,21 @@ def load_data():
                         p.get("last_name"),
                         p.get("position"),
                         p.get("team"),
-                        json.dumps(p)
+                        json.dumps(p),
                     ))
 
-            # DO NOTHING on duplicate primary key
             insert_players_sql = """
                 INSERT INTO players (player_id, first_name, last_name, position, team, raw)
                 VALUES (%s, %s, %s, %s, %s, %s)
                 ON CONFLICT (player_id) DO NOTHING;
             """
-            
+
             batch_size = 500
             for i in range(0, len(player_records), batch_size):
-                batch = player_records[i:i + batch_size]
+                batch = player_records[i : i + batch_size]
                 cur.executemany(insert_players_sql, batch)
                 conn.commit()
-            
+
             print(f"Processed {len(player_records)} active players (duplicates skipped).")
 
         # --- 2. LOAD ROSTERS (No Duplicates) ---
@@ -64,10 +71,9 @@ def load_data():
                     r.get("owner_id"),
                     settings.get("wins", 0),
                     settings.get("losses", 0),
-                    json.dumps(r)
+                    json.dumps(r),
                 ))
 
-            # DO NOTHING on duplicate roster_id
             insert_rosters_sql = """
                 INSERT INTO rosters (roster_id, league_id, owner_id, wins, losses, raw)
                 VALUES (%s, %s, %s, %s, %s, %s)
@@ -92,15 +98,14 @@ def load_data():
                     s.get("week"),
                     str(s.get("season")),
                     s.get("points"),
-                    json.dumps(s)
+                    json.dumps(s),
                 ))
 
-            # Updates points and raw JSON if record already exists for player + week + season
             insert_stats_sql = """
                 INSERT INTO player_stats (player_id, roster_id, week, season, points, raw)
                 VALUES (%s, %s, %s, %s, %s, %s)
-                ON CONFLICT (player_id, roster_id, week, season) 
-                DO UPDATE SET 
+                ON CONFLICT (player_id, roster_id, week, season)
+                DO UPDATE SET
                     points = EXCLUDED.points,
                     raw = EXCLUDED.raw;
             """
@@ -111,11 +116,17 @@ def load_data():
         print("Data loading completed successfully without duplicates!")
 
     except Exception as e:
-        conn.rollback()
-        print(f"Error loading data: {e}")
+        if conn is not None:
+            conn.rollback()
+        print(f"Error loading data: {e}", file=sys.stderr)
+        raise
+
     finally:
-        cur.close()
-        conn.close()
+        if cur is not None:
+            cur.close()
+        if conn is not None:
+            conn.close()
+
 
 if __name__ == "__main__":
     load_data()
