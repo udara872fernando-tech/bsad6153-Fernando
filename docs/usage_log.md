@@ -1,10 +1,15 @@
-# Usage Log (Weeks 4&ndash;8)
+## Usage Log (Weeks 4–8)
 
-Every time you use your own website for your real decision, add a row, using the same columns as
-your baseline log plus two more. Time yourself again so you can compare with your baseline.
+Every time you use your own website for your real decision, add a row, using the same columns as your baseline log plus two more. Time yourself again so you can compare with your baseline.
 
-| Date | What I was deciding | What I used on the site (views / chatbot / agent) | Time (min) | Did it help? Why or why not? | What I wished I knew | Confidence (1&ndash;5) |
-|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
+| Date | What I was deciding | What I used on the site (views / chatbot / agent) | Time (min) | Did it help? Why or why not? | What I wished I knew | Confidence (1–5) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-27 | Week 4 Baseline: Evaluating active WR/RB roster options and recent weekly fantasy output | Early Streamlit prototype (`app/streamlit_app.py`) + manual Sleeper API checks | 9 | Partially — the database views loaded quickly, but I still had to manually filter out inactive players and cross-check raw Sleeper JSON to verify team assignments. | Which players were actively assigned to an NFL roster (`team IS NOT NULL`) versus free agents/retired players, and when the data was last refreshed. | 3 |
+| 2026-11-04 | Week 5: Comparing mid-season flex candidates across Weeks 7–9 statistical trends | Streamlit player stats view and position filter (`app/streamlit_app.py`) | 6 | Yes — having normalized `player_stats` and `rosters` joined in PostgreSQL cut my lookup time by 3 minutes compared to switching between browser tabs. | Whether duplicate player names (such as players sharing the same `first_name`, `last_name`, and `position`) were being merged or separated by `player_id`. | 4 |
+| 2026-11-11 | Week 6: Checking waiver-wire availability and confirming post-Week 10 stat updates | Streamlit app views + `sync_runs` status check | 5 | Mostly — stats were accurate once synced, but the app's freshness indicator showed `no_sync_runs` because `ingest/load.py` was not yet writing run logs into `sync_runs`. | Automatic confirmation inside the UI of the exact timestamp and row counts (`records_fetched`, `records_updated`) from the latest scheduled sync. | 3 |
+| 2026-11-18 | Week 7: Finalizing Week 11 start/sit lineup decisions under read-only `app_reader` database access | Streamlit app (`app/streamlit_app.py`) backed by `APP_DATABASE_URL` (`app_reader`) | 4 | Yes — queries ran cleanly and safely under `app_reader` without risking accidental writes, and filtering by active NFL teams eliminated noise from the 70.9% unassigned records in `players`. | Real-time injury designations (Out/Questionable/IR) alongside historical weekly fantasy points. | 4 |
+| 2026-11-23 | Week 8 (Live Milestone 4): Selecting my Week 12 flex starter and verifying data freshness after scheduled sync | Full Streamlit app (`app/streamlit_app.py`) with active-team filtering and live `sync_runs` freshness banner | 3 | Yes — cut decision time down to 3 minutes (from 9 minutes in Week 4). Verified live `sync_runs` status (`success`, `18,855` records fetched, `9,423` updated) directly before making my lineup call. | Automated alerts when a scheduled 6-hour sync fails (`status = 'failed'`) or when a player's `team` changes mid-week. | 5 |
 
 **Notes on anything that went wrong, or that I didn't trust:**
+- **Empty `sync_runs` table during early runs:** In Weeks 6–7, `app/streamlit_app.py` displayed `no_sync_runs` because `ingest/load.py` upserted `players`, `rosters`, and `player_stats` without inserting run metadata into `sync_runs`. Logging run metadata (`trigger`, `started_at`, `finished_at`, `status`, and row counts) resolved the trust gap around data freshness.
+- **Unassigned players (`team IS NULL`) & duplicate names:** Data quality checks (`db/quality_checks.sql`) revealed that **70.9%** of the 9,422 rows in `players` have `team IS NULL` and **18** normalized `first_name + last_name + position` groups share multiple `player_id`s. Always filtering by `team IS NOT NULL` and disambiguating by `player_id` prevented inactive players from skewing start/sit comparisons.
